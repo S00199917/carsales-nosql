@@ -9,6 +9,7 @@ import { CarlistComponent } from './carlist/carlist.component';
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { AngularFireModule } from "@angular/fire";
 import { environment } from "../environments/environment";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
     declarations: [
@@ -20,7 +21,8 @@ import { environment } from "../environments/environment";
         BrowserModule,
         HttpClientModule,
         AngularFireModule.initializeApp(environment.firebase),
-        AngularFirestoreModule
+        AngularFirestoreModule,
+        NgbModule
     ],
     providers: [],
     bootstrap: [AppComponent]

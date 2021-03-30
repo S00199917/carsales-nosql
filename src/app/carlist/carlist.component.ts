@@ -12,6 +12,8 @@ import { ICar, Car } from '../interfaces/car';
 export class CarlistComponent implements OnInit {
     carsData: ICar[];
 
+    show = true;
+
     constructor(private _carAPIService: CarApiService) { }
 
     ngOnInit() {
@@ -20,7 +22,7 @@ export class CarlistComponent implements OnInit {
 
     addTheCar(make: string, model: string, year: string, imageURL: string): boolean {
         let tempCar: ICar;
-        tempCar = new Car(make, model, year, imageURL):
+        tempCar = new Car(make, model, year, imageURL, this.carsData.keys.toString());
         this._carAPIService.addCarData(tempCar);
         return false;
     }

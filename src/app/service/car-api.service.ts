@@ -24,7 +24,7 @@ export class CarApiService {
     }
 
     getCarData(): Observable<ICar[]> {
-        this.carsData = this.carsDataCollection.valueChanges();
+        this.carsData = this.carsDataCollection.valueChanges({ idField: "id" });
 
         this.carsData.subscribe(
             data => console.log("getCarsData:" + JSON.stringify(data))
@@ -34,6 +34,10 @@ export class CarApiService {
 
     addCarData(car: ICar): void {
         this.carsDataCollection.add(JSON.parse(JSON.stringify(car)));
+    }
+
+    delCarData(carId: string): void {
+        this.carsDataCollection.doc(carId).delete();
     }
 
     private handleError(err: HttpErrorResponse) {
